@@ -4,6 +4,7 @@
     "jest": "^26.6.3"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest --coverage",
+    "testWatch": "jest --coverage --watch"
   }
 }
