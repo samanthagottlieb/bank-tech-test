@@ -1,16 +1,21 @@
 # Bank Tech Test
+
 Makers Academy - Week 10 Individual Challenge
 
 ## Specification
+
 ### Project
+
 Build a bank app that can be interacted with via a REPL
 
 ### Requirements
+
 - You can make deposits
 - You can make withdrawals
 - You can view an account statement (showing date, amount deposited/withdrawn, balance)
 
 ### User Stories
+
 ```
 As a user
 So that I can add money to my bank account
@@ -26,16 +31,18 @@ I want to view my bank statement
 ```
 
 ### Acceptance criteria
+
 #### Normal operation:
+
 ```
 let account = new Account()
 account.deposit(100)
-account.balance() => 100
+account.balance => 100
 
 let account = new Account()
 account.deposit(100)
 account.withdraw(25)
-account.balance() => 75
+account.balance => 75
 
 let account = new Account()
 account.deposit(100) //on 11-01-2021
@@ -59,6 +66,7 @@ date || credit || debit || balance
 ```
 
 #### Edge cases:
+
 ```
 let account = new Account()
 account.withdraw(100) => throw exception 'Insufficent funds in account'
