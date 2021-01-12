@@ -30,6 +30,10 @@ So that I can see details of my bank account history
 I want to view my bank statement
 ```
 
+### Class Diagram
+
+![Class diagram](images/class-diagram.png)
+
 ### Acceptance criteria
 
 #### Normal operation:
