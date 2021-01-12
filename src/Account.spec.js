@@ -11,4 +11,11 @@ describe("Account", () => {
     account.deposit(100);
     expect(account.balance).toEqual(100);
   });
+
+  it("allows the user to make a withdrawal", () => {
+    let account = new Account();
+    account.deposit(100);
+    account.withdraw(25);
+    expect(account.balance).toEqual(75);
+  });
 });
