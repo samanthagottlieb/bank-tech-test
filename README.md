@@ -34,7 +34,7 @@ I want to view my bank statement
 
 ![Class diagram](images/class-diagram.png)
 
-### Acceptance criteria
+### Acceptance Criteria
 
 #### Normal operation:
 
@@ -85,3 +85,9 @@ account.withdraw() => throw exception 'Amount to be withdrawn must be an integer
 account.withdraw('100') => throw exception 'Amount to be withdrawn must be an integer'
 account.withdraw(null) => throw exception 'Amount to be withdrawn must be an integer'
 ```
+
+### How To Use
+
+#### Example usage
+
+![Example usage](images/example-usage.png)
