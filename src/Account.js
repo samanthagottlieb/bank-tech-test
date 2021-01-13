@@ -35,6 +35,23 @@ class Account {
 
     this.history.push(transaction);
   }
+
+  printStatement() {
+    return "date || credit || debit || balance\n" + this.formatStatement();
+  }
+
+  formatStatement() {
+    let orderedHistory = this.history.reverse();
+    let statement = [];
+
+    orderedHistory.forEach((transaction) => {
+      statement.push(
+        `${transaction.date} || ${transaction.credit} || ${transaction.debit} || ${transaction.balance}`
+      );
+    });
+
+    return statement.join("\n");
+  }
 }
 
 module.exports = Account;
