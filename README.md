@@ -86,8 +86,44 @@ account.withdraw('100') => throw exception 'Amount to be withdrawn must be an in
 account.withdraw(null) => throw exception 'Amount to be withdrawn must be an integer'
 ```
 
-### How To Use
+## Technnologies used
 
-#### Example usage
+- ESLint - JavaScript linter tool
+- Jest - JavaSript testing framework
+- Mermaid - JavaScript based diagramming and charting tool
+
+## How To Use
+
+### How to set up project and run tests
+
+To set up the project:
+
+```
+$ git clone git@github.com:samanthagottlieb/bank-tech-test.git
+$ cd bank-tech-test
+```
+
+To set up Jest:
+
+```
+$ npm init
+$ npm install --save-dev jest
+```
+
+Make sure the following is inside the package.json file to add coverage to the test output:
+
+```
+"scripts": {
+  "test": "jest --coverage"
+}
+```
+
+To run the tests:
+
+```
+$ npm run test
+```
+
+### Example Usage
 
 ![Example usage](images/example-usage.png)
