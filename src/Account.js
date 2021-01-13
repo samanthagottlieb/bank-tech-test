@@ -5,8 +5,12 @@ class Account {
   }
 
   deposit(amount, date = new Date(Date.now())) {
-    this.balance += amount;
-    this.saveDeposit(amount, date);
+    if (!Number.isInteger(amount)) {
+      throw "Amount to be deposited must be an integer";
+    } else {
+      this.balance += amount;
+      this.saveDeposit(amount, date);
+    }
   }
 
   withdraw(amount, date = new Date(Date.now())) {

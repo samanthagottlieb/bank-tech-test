@@ -79,4 +79,21 @@ describe("Account", () => {
     }).toThrow("Insufficient funds in account");
     expect(account.balance).toEqual(0);
   });
+
+  it("throws an error when user doesn't enter amount to deposit", () => {
+    let account = new Account();
+
+    expect(() => {
+      account.deposit();
+    }).toThrow("Amount to be deposited must be an integer");
+    expect(account.balance).toEqual(0);
+    expect(() => {
+      account.deposit("100");
+    }).toThrow("Amount to be deposited must be an integer");
+    expect(account.balance).toEqual(0);
+    expect(() => {
+      account.deposit(null);
+    }).toThrow("Amount to be deposited must be an integer");
+    expect(account.balance).toEqual(0);
+  });
 });
