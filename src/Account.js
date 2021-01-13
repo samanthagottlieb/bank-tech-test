@@ -10,8 +10,12 @@ class Account {
   }
 
   withdraw(amount, date = new Date(Date.now())) {
-    this.balance -= amount;
-    this.saveWithdrawal(amount, date);
+    if (amount > this.balance) {
+      throw "Insufficient funds in account";
+    } else {
+      this.balance -= amount;
+      this.saveWithdrawal(amount, date);
+    }
   }
 
   saveDeposit(amount, date) {

@@ -70,4 +70,13 @@ describe("Account", () => {
       "date || credit || debit || balance\n12/01/2021 ||  || 25.00 || 75.00\n12/01/2021 || 100.00 ||  || 100.00"
     );
   });
+
+  it("throws an error when insufficient funds to make withdrawal", () => {
+    let account = new Account();
+
+    expect(() => {
+      account.withdraw(25);
+    }).toThrow("Insufficient funds in account");
+    expect(account.balance).toEqual(0);
+  });
 });
