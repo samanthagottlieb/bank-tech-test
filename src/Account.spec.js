@@ -1,6 +1,8 @@
 const Account = require("./Account");
 
 describe("Account", () => {
+  //   let mockDate = jasmine.createSpy("mockDate");
+
   it("has a starting balance of zero", () => {
     let account = new Account();
     expect(account.balance).toEqual(0);
@@ -17,5 +19,22 @@ describe("Account", () => {
     account.deposit(100);
     account.withdraw(25);
     expect(account.balance).toEqual(75);
+  });
+
+  it("saves a deposit in account history", () => {
+    let account = new Account();
+    jest
+      .spyOn(global.Date, "now")
+      .mockImplementationOnce(() => new Date("2021-01-12T23:13:31.060Z"));
+
+    account.deposit(100);
+    expect(account.history).toEqual([
+      {
+        date: "12/01/2021",
+        credit: "100.00",
+        debit: "",
+        balance: "100.00",
+      },
+    ]);
   });
 });
