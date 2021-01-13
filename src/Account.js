@@ -16,6 +16,8 @@ class Account {
   withdraw(amount, date = new Date(Date.now())) {
     if (amount > this.balance) {
       throw "Insufficient funds in account";
+    } else if (!Number.isInteger(amount)) {
+      throw "Amount to be withdrawn must be an integer";
     } else {
       this.balance -= amount;
       this.saveWithdrawal(amount, date);

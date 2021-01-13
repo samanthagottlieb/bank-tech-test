@@ -96,4 +96,22 @@ describe("Account", () => {
     }).toThrow("Amount to be deposited must be an integer");
     expect(account.balance).toEqual(0);
   });
+
+  it("throws an error when user doesn't enter amount to withdraw", () => {
+    let account = new Account();
+    account.deposit(100);
+
+    expect(() => {
+      account.withdraw();
+    }).toThrow("Amount to be withdrawn must be an integer");
+    expect(account.balance).toEqual(100);
+    expect(() => {
+      account.withdraw("25");
+    }).toThrow("Amount to be withdrawn must be an integer");
+    expect(account.balance).toEqual(100);
+    expect(() => {
+      account.withdraw(null);
+    }).toThrow("Amount to be withdrawn must be an integer");
+    expect(account.balance).toEqual(100);
+  });
 });
