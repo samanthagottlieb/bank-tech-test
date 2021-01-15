@@ -1,56 +1,48 @@
+const Transaction = require("./Transaction");
+
 class Account {
   constructor(balance = 0) {
     this.balance = balance;
     this.history = [];
   }
 
-  deposit(amount, date = new Date(Date.now())) {
+  deposit(amount, transactionClass = Transaction) {
+    let transaction = new Transaction(amount, this.balance);
+
     if (!Number.isInteger(amount)) {
       throw "Amount to be deposited must be an integer";
     } else {
-      this.balance += amount;
-      this.saveDeposit(amount, date);
+      this._saveDeposit(transaction);
     }
   }
 
-  withdraw(amount, date = new Date(Date.now())) {
+  withdraw(amount, transactionClass = Transaction) {
+    let transaction = new Transaction(amount, this.balance);
+
     if (amount > this.balance) {
       throw "Insufficient funds in account";
     } else if (!Number.isInteger(amount)) {
       throw "Amount to be withdrawn must be an integer";
     } else {
-      this.balance -= amount;
-      this.saveWithdrawal(amount, date);
+      this._saveWithdrawal(transaction);
     }
   }
 
-  saveDeposit(amount, date) {
-    let transaction = {
-      date: date.toLocaleDateString(),
-      credit: amount.toFixed(2),
-      debit: "",
-      balance: this.balance.toFixed(2),
-    };
-
-    this.history.push(transaction);
+  _saveDeposit(transaction) {
+    this.balance += transaction.amount;
+    this.history.push(transaction._getDepositDetails());
   }
 
-  saveWithdrawal(amount, date) {
-    let transaction = {
-      date: date.toLocaleDateString(),
-      credit: "",
-      debit: amount.toFixed(2),
-      balance: this.balance.toFixed(2),
-    };
-
-    this.history.push(transaction);
+  _saveWithdrawal(transaction) {
+    this.balance -= transaction.amount;
+    this.history.push(transaction._getWithdrawalDetails());
   }
 
   printStatement() {
-    return "date || credit || debit || balance\n" + this.formatStatement();
+    return "date || credit || debit || balance\n" + this._formatStatement();
   }
 
-  formatStatement() {
+  _formatStatement() {
     let orderedHistory = this.history.reverse();
     let statement = [];
 
