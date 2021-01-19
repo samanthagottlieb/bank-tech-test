@@ -7,7 +7,7 @@ class Account {
   }
 
   deposit(amount, transactionClass = Transaction) {
-    let transaction = new Transaction(amount, this.balance);
+    let transaction = new transactionClass(amount, this.balance);
 
     if (!Number.isInteger(amount)) {
       throw "Amount to be deposited must be an integer";
