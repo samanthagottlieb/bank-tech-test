@@ -7,5 +7,6 @@
   "scripts": {
     "test": "jest --coverage",
     "testWatch": "jest --coverage --watch"
-  }
+  },
+  "dependencies": {}
 }

@@ -1,4 +1,4 @@
-const Transaction = require("./Transaction");
+const Transaction = require("../../src/Transaction");
 
 describe("Transaction", () => {
   it("gets the deposit details", () => {
