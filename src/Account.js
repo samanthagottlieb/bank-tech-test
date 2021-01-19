@@ -17,7 +17,7 @@ class Account {
   }
 
   withdraw(amount, transactionClass = Transaction) {
-    let transaction = new Transaction(amount, this.balance);
+    let transaction = new transactionClass(amount, this.balance);
 
     if (amount > this.balance) {
       throw "Insufficient funds in account";
