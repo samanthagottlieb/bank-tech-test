@@ -1,23 +1,20 @@
 const Account = require("../../src/Account");
 const Transaction = require("../../src/Transaction");
 
-const mock_getDepositDetails = jest.fn();
+const mockGetDepositDetails = jest.fn();
+const mockGetWithdrawalDetails = jest.fn();
 jest.mock("../../src/Transaction", () => {
   return jest.fn().mockImplementation(() => {
-    return { _getDepositDetails: mock_getDepositDetails };
-  });
-});
-
-const mock_getWithdrawalDetails = jest.fn();
-jest.mock("../../src/Transaction", () => {
-  return jest.fn().mockImplementation(() => {
-    return { _getWithdrawalDetails: mock_getWithdrawalDetails };
+    return {
+      getDepositDetails: mockGetDepositDetails,
+      getWithdrawalDetails: mockGetWithdrawalDetails,
+    };
   });
 });
 
 beforeEach(() => {
   Transaction.mockClear();
-  mock_getDepositDetails.mockClear();
+  mockGetDepositDetails.mockClear();
 });
 
 describe("Account", () => {
@@ -44,7 +41,7 @@ describe("Account", () => {
     const account = new Account();
     account.deposit(100);
 
-    expect(mock_getDepositDetails).toHaveBeenCalled();
+    expect(mockGetDepositDetails).toHaveBeenCalled();
   });
 
   it("Making a withdrawal calls the Transaction class constructor", () => {
@@ -60,6 +57,6 @@ describe("Account", () => {
     account.deposit(100);
     account.withdraw(25);
 
-    expect(mock_getWithdrawalDetails).toHaveBeenCalled();
+    expect(mockGetWithdrawalDetails).toHaveBeenCalled();
   });
 });
