@@ -8,7 +8,7 @@ describe("Transaction", () => {
 
     let transaction = new Transaction(25, 100);
 
-    expect(transaction._getDepositDetails()).toEqual({
+    expect(transaction.getDepositDetails()).toEqual({
       date: "12/01/2021",
       credit: "25.00",
       debit: "",
@@ -23,7 +23,7 @@ describe("Transaction", () => {
 
     let transaction = new Transaction(25, 100);
 
-    expect(transaction._getWithdrawalDetails()).toEqual({
+    expect(transaction.getWithdrawalDetails()).toEqual({
       date: "12/01/2021",
       credit: "",
       debit: "25.00",

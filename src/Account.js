@@ -30,12 +30,12 @@ class Account {
 
   _saveDeposit(transaction) {
     this.balance += transaction.amount;
-    this.history.push(transaction._getDepositDetails());
+    this.history.push(transaction.getDepositDetails());
   }
 
   _saveWithdrawal(transaction) {
     this.balance -= transaction.amount;
-    this.history.push(transaction._getWithdrawalDetails());
+    this.history.push(transaction.getWithdrawalDetails());
   }
 
   printStatement() {

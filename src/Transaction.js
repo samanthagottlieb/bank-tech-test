@@ -5,7 +5,7 @@ class Transaction {
     this.date = date;
   }
 
-  _getDepositDetails() {
+  getDepositDetails() {
     let newBalance = (this.currentBalance += this.amount);
     let depositDetails = {
       date: this.date.toLocaleDateString("en-GB"),
@@ -17,7 +17,7 @@ class Transaction {
     return depositDetails;
   }
 
-  _getWithdrawalDetails() {
+  getWithdrawalDetails() {
     let newBalance = (this.currentBalance -= this.amount);
     let withdrawalDetails = {
       date: this.date.toLocaleDateString("en-GB"),
