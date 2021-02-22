@@ -1,12 +1,70 @@
 # Bank Tech Test
 
-Makers Academy - Week 10 Individual Challenge
+Bank app that can be interacted with via a REPL
+
+## How To Use
+
+### Set up the project
+
+Clone the repository:
+
+```sh
+git clone git@github.com:samanthagottlieb/bank-tech-test.git
+```
+
+Navigate to the directory:
+
+```sh
+cd bank-tech-test
+```
+
+Install dependencies:
+
+```sh
+npm install
+```
+
+### Run tests and linting
+
+Run tests:
+
+```sh
+npm run test
+```
+
+Lint code:
+
+```sh
+npx eslint 'src/**'
+```
+
+### Run the app
+
+Start the Node.js REPL:
+
+```sh
+node
+```
+
+Require the Account file into the REPL:
+
+```sh
+const Account = require('./src/Account.js')
+```
+
+### Example Usage
+
+![Example usage](images/example-usage.png)
 
 ## Specification
 
-### Project
+### Task
 
-Build a bank app that can be interacted with via a REPL
+Build a bank app that can be interacted with via a REPL.
+
+Use OO design principles and TDD. Data can be kept in memory.
+
+Makers Academy week 10 challenge.
 
 ### Requirements
 
@@ -91,39 +149,3 @@ account.withdraw(null) => throw exception 'Amount to be withdrawn must be an int
 - ESLint - JavaScript linter tool
 - Jest - JavaSript testing framework
 - Mermaid - JavaScript based diagramming and charting tool
-
-## How To Use
-
-### How to set up project and run tests
-
-To set up the project:
-
-```
-$ git clone git@github.com:samanthagottlieb/bank-tech-test.git
-$ cd bank-tech-test
-```
-
-To set up Jest:
-
-```
-$ npm init
-$ npm install --save-dev jest
-```
-
-Make sure the following is inside the package.json file to add coverage to the test output:
-
-```
-"scripts": {
-  "test": "jest --coverage"
-}
-```
-
-To run the tests:
-
-```
-$ npm run test
-```
-
-### Example Usage
-
-![Example usage](images/example-usage.png)
